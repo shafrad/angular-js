@@ -1,0 +1,28 @@
+<p>gst-get works!</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+        <!-- <th scope="col">#</th> -->
+        <th scope="col">ID</th>
+        <th scope="col">Person Name</th>
+        <th scope="col">Business Name</th>
+        <th scope="col">Business GST Number</th>
+        <th scope="col" colspan="2" class="centered">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let business of businesses">
+            <td>{{business._id}}</td>
+            <td>{{business.person_name}}</td>
+            <td>{{business.business_name}}</td>
+            <td>{{business.business_gst_number}}</td>
+            <td class="centered"><button [routerLink]="['/gst-get-detail', business._id]" class="btn btn-primary"><i class="fas fa-pencil"></i>Show</button></td>
+            <td class="centered"><a (click)="deleteBusiness(business._id)"><button class="btn btn-danger"><span><i class="fas fa-dash"></i>Delete</span></button></a></td>
+          </tr>
+    </tbody>
+</table>
+
+<button routerLink="/gst-add" class="btn btn-primary"><i class="fas fa-plus"></i>Add new</button> <br><br>
+
+<button type="button" class="btn btn-success" (click)="reloadPage()">Refresh</button>
